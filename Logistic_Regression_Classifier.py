@@ -4,9 +4,25 @@
 # Building a logistic regression classifier to recognize  cats.
 
 import numpy as np
-#import matplotlib.pyplot as plt
-#import scipy
 
+"""
+    w -- weights, a numpy array of size (num_px * num_px * 3, 1)
+    b -- bias, a scalar
+    X -- data of size (num_px * num_px * 3, number of examples)
+    Y_prediction -- a numpy array (vector) containing all predictions (0/1) for the examples in X
+    
+    cost -- negative log-likelihood cost for logistic regression
+    dw -- gradient of the loss with respect to w
+    db -- gradient of the loss with respect to b
+    
+    num_iterations -- number of iterations of the optimization loop
+    learning_rate -- learning rate of the gradient descent update rule
+    print_cost -- True to print the loss every 100 steps
+    
+    params -- dictionary containing the weights w and bias b
+    grads -- dictionary containing the gradients of the weights and bias with respect to the cost function
+    costs -- list of all the costs computed during the optimization, this will be used to plot the learning curve.
+"""
 
 # Helper functions
 
@@ -33,30 +49,19 @@ def initialize_with_zeros(dim):
 
 
 def propagate(w, b, X, Y):
-    '''
+    """
     This function computes cost function and its gradient
-
-    Arguments:
-    w -- weights, a numpy array of size (num_px * num_px * 3, 1)
-    b -- bias, a scalar
-    X -- data of size (num_px * num_px * 3, number of examples)
-    Y -- true "label" vector (containing 0 if non-cat, 1 if cat) of size (1, number of examples)
-
-    Return:
-    cost -- negative log-likelihood cost for logistic regression
-    dw -- gradient of the loss with respect to w, thus same shape as w
-    db -- gradient of the loss with respect to b, thus same shape as b
     
-    '''
+    """
     
     m = X.shape[1]
     
-    # FORWARD PROPAGATION
-    epsilon=1e-5
-    A = sigmoid(np.dot(w.T,X)+b)                          # compute activation
-    cost = (-1/m)*np.sum(Y*np.log(A+epsilon)+(1-Y)*np.log(1-A+epsilon))   # compute cost
+    # Forward propagation
+    epsilon = 1e-5
+    A = sigmoid(np.dot(w.T, X) + b)                          # compute activation
+    cost = (-1/m)*np.sum(Y*np.log(A + epsilon)+(1 - Y)*np.log(1 - A + epsilon))   # compute cost
        
-    # BACKWARD PROPAGATION
+    # Backward propagation
     dw = (1/m)*np.dot(X,(A-Y).T)
     db = (1/m)*np.sum(A-Y)
     
@@ -74,29 +79,14 @@ def propagate(w, b, X, Y):
 def optimize(w, b, X, Y, num_iterations, learning_rate, print_cost = False):
     """
     This function optimizes w and b by running a gradient descent algorithm
-    
-    Arguments:
-    w -- weights, a numpy array of size (num_px * num_px * 3, 1)
-    b -- bias, a scalar
-    X -- data of shape (num_px * num_px * 3, number of examples)
-    Y -- true "label" vector (containing 0 if non-cat, 1 if cat), of shape (1, number of examples)
-    num_iterations -- number of iterations of the optimization loop
-    learning_rate -- learning rate of the gradient descent update rule
-    print_cost -- True to print the loss every 100 steps
-    
-    Returns:
-    params -- dictionary containing the weights w and bias b
-    grads -- dictionary containing the gradients of the weights and bias with respect to the cost function
-    costs -- list of all the costs computed during the optimization, this will be used to plot the learning curve.
      
     """
     
     costs = []
     
     for i in range(num_iterations):
-        
-        
-        # Cost and gradient calculation (≈ 1-4 lines of code)
+           
+        # Cost and gradient calculation
         grads, cost = propagate(w, b, X, Y)
                 
         # Retrieve derivatives from grads
@@ -125,25 +115,17 @@ def optimize(w, b, X, Y, num_iterations, learning_rate, print_cost = False):
 
 
 def predict(w, b, X):
-    '''
+    """
     This function predicts whether the label is 0 or 1 using learned logistic regression parameters (w, b)
     
-    Arguments:
-    w -- weights, a numpy array of size (num_px * num_px * 3, 1)
-    b -- bias, a scalar
-    X -- data of size (num_px * num_px * 3, number of examples)
-    
-    Returns:
-    Y_prediction -- a numpy array (vector) containing all predictions (0/1) for the examples in X
-    
-    '''
+    """
     
     m = X.shape[1]
-    Y_prediction = np.zeros((1,m))
+    Y_prediction = np.zeros((1, m))
     w = w.reshape(X.shape[0], 1)
     
     # Compute vector "A" predicting the probabilities of a cat being present in the picture
-    A = sigmoid(np.dot(w.T,X) + b)
+    A = sigmoid(np.dot(w.T, X) + b)
     
     for i in range(A.shape[1]):
         
@@ -151,7 +133,7 @@ def predict(w, b, X):
         if A[0,i]>0.5:
             Y_prediction[0, i] = 1
         else:
-            Y_prediction[0,i] = 0
+            Y_prediction[0, i] = 0
     
     assert(Y_prediction.shape == (1, m))
     
@@ -161,10 +143,10 @@ def predict(w, b, X):
 # Merge all functions into a model ##
 
 def model(X_train, Y_train, X_test, Y_test, num_iterations = 1500, learning_rate = 0.01, print_cost = False):
-    '''
+    """
     This function builds the logistic regression model by calling the above implemented functions
     
-    '''
+    """
     
     # initialize parameters with zeros
     w, b = initialize_with_zeros(X_train.shape[0])
