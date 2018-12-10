@@ -27,10 +27,11 @@ import numpy as np
 # Helper functions
 
 def sigmoid(z):
-    '''
+    """
+    This function copmutes the sigmoid of z.
     z is a scalar or numpy array of any size.
     
-    '''
+    """
  
     s = 1/(1+np.exp(-z))
         
@@ -38,7 +39,11 @@ def sigmoid(z):
 
 
 def initialize_with_zeros(dim):
-      
+    """
+    This function creates a vector of zeroes of shape (dim, 1) for w and initializes b to 0
+    
+    """
+    
     w = np.zeros((dim, 1))
     b = 0
     
