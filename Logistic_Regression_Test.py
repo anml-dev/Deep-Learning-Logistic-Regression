@@ -5,7 +5,7 @@ import skimage
 from Logistic_Regression_Classifier import predict
 
 
-with h5py.File('mytestfile.hdf5', 'r') as f:
+with h5py.File('mytestfile.h5', 'r') as f:
    w = f['/w'][:]
    b = f['/b'].value
    num_px = f['/num_px'].value

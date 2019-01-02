@@ -28,7 +28,7 @@ def process_dataset(train_set_x_orig, test_set_x_orig):
     train_set_x_flatten = train_set_x_orig.reshape(num_px*num_px*3, m_train)
     test_set_x_flatten = test_set_x_orig.reshape(num_px*num_px*3, m_test)
 
-    # Center and standartize your dataset. We divide every row of the dataset by 255 (the maximum value of a pixel channel)
+    # Standartize the dataset. We divide every row of the dataset by 255 (the maximum value of a pixel channel)
     train_set_x = train_set_x_flatten/255
     test_set_x = test_set_x_flatten/255
 
