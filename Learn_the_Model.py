@@ -1,7 +1,7 @@
 import numpy as np
 import h5py
 from Logistic_Regression_Classifier import model
-from Logistic_Regression_utils import load_dataset, process_dataset
+from Logistic_Regression_Utils import load_dataset, process_dataset
 
 # Loading the data (cat and non-cat)
 
@@ -11,7 +11,7 @@ train_set_x, test_set_x, num_px = process_dataset(train_set_x_orig, test_set_x_o
 
 d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.05, print_cost = True)
 
-with h5py.File("mytestfile.hdf5", "w") as f:
+with h5py.File("mytestfile.h5", "w") as f:
     f.create_dataset("costs", data=d["costs"])
     f.create_dataset("Y_prediction_test", data=d["Y_prediction_test"])
     f.create_dataset("Y_prediction_train", data=d["Y_prediction_train"])
