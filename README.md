@@ -1,4 +1,4 @@
-# Deep-Learning-Logistic-Regression in Python 3.7
+# Deep Learning Logistic Regression in Python 3.7
 
 The code builds an image-recognition algorithm that can classify pictures as cat or non-cat with about 70% accuracy.  The model is simple, it mimics a neural network of 1 layer, and it easily overfits the training data. No regularization is provided in this solution. The hyperparameters have values, as it is given below:
 
