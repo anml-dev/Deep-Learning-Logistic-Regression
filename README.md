@@ -5,7 +5,7 @@ The code builds an image-recognition algorithm that can classify pictures as cat
  - _learning rate: 0.05_
  - _number of iterrations: 2000_
 
-This results in train accuracy of about 72.25 and test accurasy of 68%.
+This results in train accuracy of about 72.25% and test accuracy of 68%.
 
 The files are organized as follows:
 
