@@ -9,7 +9,7 @@ train_set_x_orig, train_set_y, test_set_x_orig, test_set_y, classes = load_datas
 
 train_set_x, test_set_x, num_px = process_dataset(train_set_x_orig, test_set_x_orig)
 
-d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.05, print_cost = True)
+d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.01, print_cost = True)
 
 with h5py.File("mytestfile.h5", "w") as f:
     f.create_dataset("costs", data=d["costs"])

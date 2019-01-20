@@ -13,6 +13,7 @@ with h5py.File('mytestfile.h5', 'r') as f:
 
 # Test with your own image 
 my_image = "Vito2.jpeg"    
+#my_image = "Hydrangeas.jpg"
 
 fname = "images/" + my_image
 image = np.array(plt.imread(fname))

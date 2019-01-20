@@ -2,10 +2,10 @@
 
 The code builds an image-recognition algorithm that can classify pictures as cat or non-cat with about 70% accuracy.  The model is simple, it mimics a Neural Network of 2 layers, with a single hidden layer (Logistic Regression is actually a very simple Neural Network), and it easily overfits the training data. No regularization is provided in this solution. The hyperparameters have values, as it is given below:
 
- - _learning rate: 0.05_
+ - _learning rate: 0.01_
  - _number of iterrations: 2000_
 
-This results in train accuracy of about 72.25% and test accuracy of 68%.
+This results in train accuracy over 99% and test accuracy of 70%.
 
 The files are organized as follows:
 
