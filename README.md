@@ -1,6 +1,6 @@
-# Logistic Regression Classifier in Python 3.7
+# Simple Logistic Regression Classifier in Python
 
-The code builds an image-recognition algorithm that can classify pictures as cat or non-cat with about 70% accuracy.  The model is simple, it mimics a Neural Network of 2 layers, with a single hidden layer (Logistic Regression is actually a very simple Neural Network), and it easily overfits the training data. No regularization is provided in this solution. The hyperparameters have values, as it is given below:
+The code builds from scratch an image-recognition algorithm that can classify pictures as cat or non-cat with about 70% accuracy.  The model is simple, it mimics a Neural Network of 2 layers, with a single hidden layer (Logistic Regression is actually a very simple Neural Network), and it easily overfits the training data. No regularization is provided in this solution. The hyperparameters have values, as it is given below:
 
  - _learning rate: 0.01_
  - _number of iterrations: 2000_
