@@ -5,8 +5,6 @@ The code builds from scratch an image-recognition algorithm that can classify pi
  - _learning rate: 0.01_
  - _number of iterrations: 2000_
 
-This results in train accuracy over 99% and test accuracy of 70%.
-
 The files are organized as follows:
 
 * **Logistic_Regression_Utils.py** - contains utility functions for loading and preprocessing the datasets. The hdf5 files "datasets/train.h5" and "datasets/test.h5" contain the training and test sets of images. The function load_dataset() returns the train and test datasets, as well as the list of classes ("cat", "non-cat"). Each line of the train and test datasets is an array representing an image. Each image is of shape (number_of_pixels, number_of_pixels, 3) where 3 is for the three RGB channels. The function process_dataset() first reshapes the datasets  (the images are flattened into single vectors of shape (num_px * num_px * 3, 1)), and then centers and standardizes them (in this case it is enough to divide every row of the dataset by 255 - the maximum value of a pixel channel)
